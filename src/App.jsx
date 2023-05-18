@@ -32,18 +32,19 @@ function App() {
         },
         {
           path: '/alltoys',
-          element : <AllToys/>
+          element: <AllToys />,
+          loader: () => fetch('http://localhost:5000/toys')
         },
         {
           path: '/mytoys',
-          element : <MyToys/>
+          element: <MyToys />
         },
         {
           path: '/addtoys',
-          element : <AddToys/>
+          element: <AddToys />
         },
-         
-         
+
+
       ]
     }
 
