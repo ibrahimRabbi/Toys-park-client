@@ -102,7 +102,7 @@ const AddToys = () => {
                     <label htmlFor="photo">
                         description
                     </label>
-                    <textarea className="p-2 rounded-lg" type="text" name="description" placeholder=" photo URL" id="photo" />
+                    <textarea className="p-2 rounded-lg" type="text" name="description" placeholder="product description" id="photo" />
                 </div>
 
                 
