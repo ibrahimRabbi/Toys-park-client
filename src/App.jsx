@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Home from "./components/home/Home"
+import Home from "./components/homeComponents/home/Home"
 import LayoutComponent from "./components/layout/Layout"
- import SignUp from "./components/Form/SignUp"
+import SignUp from "./components/Form/SignUp"
 import SignIn from "./components/Form/SignIn"
 import Error from "./components/utility/Error"
 
@@ -12,26 +12,26 @@ function App() {
     {
       path: '/',
       element: <LayoutComponent />,
-      errorElement : <Error/>,
+      errorElement: <Error />,
       children: [
         {
           path: '/',
-          element : <Home/>
+          element: <Home />
         },
         {
           path: '/signup',
-          element : <SignUp/>
+          element: <SignUp />
         },
         {
           path: '/signin',
-          element : <SignIn/>
+          element: <SignIn />
         },
       ]
-     }
-    
+    }
+
   ])
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   )
 }
 

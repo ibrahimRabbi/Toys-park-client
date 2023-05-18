@@ -22,7 +22,10 @@ const Navbar = () => {
                             <li><ActiveLink to='/latest'>Blog</ActiveLink></li>
                         </ul>
                     </div>
-                    <Link className="text-2xl text-slate-50 normal-case">Toys park</Link>
+                    <Link className='flex items-center gap-1'>
+                        <img className='rounded-full' width={70} src="../../../public/logo.png"   border="0" /> 
+                        <h2 className="text-2xl font-semibold text-slate-50 normal-case">Toys park</h2>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal text-slate-50 text-lg font-semibold px-1">
