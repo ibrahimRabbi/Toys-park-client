@@ -4,6 +4,7 @@ import LayoutComponent from "./components/layout/Layout"
 import SignUp from "./components/Form/SignUp"
 import SignIn from "./components/Form/SignIn"
 import Error from "./components/utility/Error"
+import AuthContext from "./components/Authentication/AuthContext"
 
 
 function App() {
@@ -31,7 +32,9 @@ function App() {
 
   ])
   return (
-    <RouterProvider router={router} />
+    <AuthContext>
+      <RouterProvider router={router} />
+    </AuthContext>
   )
 }
 

@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
-import SigninProvider from "./SigninProvider";
-
+import { useContext } from "react";
+import { Context } from "../Authentication/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+ 
 const SignUp = () => {
 
-   
+    const  {signUp,profile} = useContext(Context)
+      const navigate = useNavigate()
     
     const submit = (e) => {
         e.preventDefault()
@@ -13,7 +15,12 @@ const SignUp = () => {
         const photo = e.target.photo.value
         
         
-        
+        signUp(email, password)
+            .then(res => {
+                profile(res.user,name,photo)
+                navigate('/')  
+            })
+        .catch(error=>console.log(error.message))
        
  
     }
@@ -25,7 +32,7 @@ const SignUp = () => {
     return (
         <section className="text-center m-auto my-10 py-5 border rounded-lg lg:w-[50%] w-[90%]">
             <h1 className="text-pink-600 text-2xl font-semibold">Sign Up</h1>
-            <form className="m-7 flex flex-col gap-7" >
+            <form onSubmit={submit} className="m-7 flex flex-col gap-7" >
                 <input type="text" name='name' placeholder="user name" className="input input-bordered border-pink-600 w-full" required />
                 <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered border-pink-600 w-full" required />
                 <input type="email" name='email' placeholder="Email" className="input input-bordered border-pink-600 w-full" required />
