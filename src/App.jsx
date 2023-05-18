@@ -5,6 +5,9 @@ import SignUp from "./components/Form/SignUp"
 import SignIn from "./components/Form/SignIn"
 import Error from "./components/utility/Error"
 import AuthContext from "./components/Authentication/AuthContext"
+import AllToys from "./components/allToys/AllToys"
+import MyToys from "./components/myToys/MyToys"
+import AddToys from "./components/addToys/AddToys"
 
 
 function App() {
@@ -27,6 +30,20 @@ function App() {
           path: '/signin',
           element: <SignIn />
         },
+        {
+          path: '/alltoys',
+          element : <AllToys/>
+        },
+        {
+          path: '/mytoys',
+          element : <MyToys/>
+        },
+        {
+          path: '/addtoys',
+          element : <AddToys/>
+        },
+         
+         
       ]
     }
 

@@ -16,10 +16,10 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact text-slate-900 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><ActiveLink to='/'>Home</ActiveLink></li>
-                            <li><ActiveLink to='/blog'>All toys</ActiveLink></li>
-                            <li><ActiveLink to='/latest'>My toys</ActiveLink></li>
-                            <li><ActiveLink to='/latest'>Add a toy</ActiveLink></li>
-                            <li><ActiveLink to='/latest'>Blog</ActiveLink></li>
+                            <li><ActiveLink to='/alltoys'>All toys</ActiveLink></li>
+                            <li><ActiveLink to='/mytoys'>My toys</ActiveLink></li>
+                            <li><ActiveLink to='/addtoys'>Add a toy</ActiveLink></li>
+                            <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
                         </ul>
                     </div>
                     <Link className='flex items-center gap-1'>
@@ -30,10 +30,10 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal text-slate-50 text-lg font-semibold px-1">
                         <li><ActiveLink to='/'>Home</ActiveLink></li>
-                        <li><ActiveLink to='/blog'>All toys</ActiveLink></li>
-                        <li><ActiveLink to='/latest'>My toys</ActiveLink></li>
-                        <li><ActiveLink to='/latest'>Add a toy</ActiveLink></li>
-                        <li><ActiveLink to='/latest'>Blog</ActiveLink></li>
+                        <li><ActiveLink to='/alltoys'>All toys</ActiveLink></li>
+                        <li><ActiveLink to='/mytoys'>My toys</ActiveLink></li>
+                        <li><ActiveLink to='/addtoys'>Add a toy</ActiveLink></li>
+                        <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
