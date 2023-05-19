@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../Authentication/AuthContext";
+import SigninProvider from "./SigninProvider";
 
 
 
@@ -39,7 +40,9 @@ const SignIn = () => {
                 <p className="font-semibold">dont have an account ? <Link to='/signup' className="text-pink-600 font-semibold">Register</Link></p>
                 <span className="text-xl font-semibold text-gray-600">or</span>
 
-
+                <div className="flex justify-center mt-5">
+                    <SigninProvider />
+                </div>
             </div>
         </section>
     );

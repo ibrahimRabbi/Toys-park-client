@@ -20,7 +20,7 @@ const SignUp = () => {
             .then(res => {
                 profile(res.user,name,photo)
                 navigate('/')
-                console.log(res.user)
+                //console.log(res.user)
             })
         .catch(error=>console.log(error.message))
        
@@ -48,7 +48,9 @@ const SignUp = () => {
                 </form>
                 <p className="font-semibold">already have an account ? <Link to='/signin' className="text-pink-600 font-semibold">Sign In</Link></p>
                 <span className="text-xl font-semibold text-gray-600">or</span>
-                
+                <div className="flex justify-center mt-5">
+                    <SigninProvider />
+                </div>
             </div>
              
             

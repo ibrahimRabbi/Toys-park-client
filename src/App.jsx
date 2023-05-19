@@ -9,6 +9,8 @@ import AllToys from "./components/allToys/AllToys"
 import MyToys from "./components/myToys/MyToys"
 import AddToys from "./components/addToys/AddToys"
 import EditToys from "./components/myToys/EditToys"
+import ShowDetials from "./components/ShowDetials/ShowDetials"
+import PrivetRoute from "./components/privertRoute/PrivetRoute"
 
 
 function App() {
@@ -35,6 +37,11 @@ function App() {
           path: '/alltoys',
           element: <AllToys />,
           loader: () => fetch('http://localhost:5000/toys')
+        },
+        {
+          path: '/alltoys/:id',
+          element: <PrivetRoute><ShowDetials/></PrivetRoute>,
+          loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
         },
         {
           path: '/mytoys',

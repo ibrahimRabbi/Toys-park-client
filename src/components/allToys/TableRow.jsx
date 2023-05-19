@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TableRow = ({ obj }) => {
-    const {name,email,price,toyName,photo,stock,category} = obj
+    const {_id,name,email,price,toyName,photo,stock,category} = obj
     return (
         <tr>
             <td>
@@ -25,7 +26,7 @@ const TableRow = ({ obj }) => {
             </td>
             <td>{category}</td>
             <th>
-                <button className="p-3 bg-pink-500 text-slate-50 rounded-lg"> view details</button>
+                <Link to={`/alltoys/${_id}`} className="p-3 bg-pink-500 text-slate-50 rounded-lg"> view details</Link>
             </th>
         </tr>
     );
