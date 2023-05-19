@@ -19,7 +19,8 @@ const SignUp = () => {
         signUp(email, password)
             .then(res => {
                 profile(res.user,name,photo)
-                navigate('/')  
+                navigate('/')
+                console.log(res.user)
             })
         .catch(error=>console.log(error.message))
        
@@ -33,7 +34,7 @@ const SignUp = () => {
     return (
         <section className="flex items-center w-[90%] mx-auto" >
             <div className="w-1/2 hidden lg:inline-block">
-                <img src="../../../public/signup.png" alt="" srcset="" />
+                <img src="../../../public/signup.png" alt="" />
             </div>
             <div className="text-center m-auto my-10 py-5 border rounded-lg lg:w-[50%] w-[90%]">
                 <h1 className="text-pink-600 text-2xl font-semibold">Sign Up</h1>
