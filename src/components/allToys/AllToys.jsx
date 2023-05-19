@@ -5,7 +5,7 @@ import TableRow from './TableRow';
 const AllToys = () => {
 
     const load = useLoaderData()
-    console.log(load)
+    
     return (
 
         <div className="overflow-x-auto w-[90%] my-11 mx-auto">

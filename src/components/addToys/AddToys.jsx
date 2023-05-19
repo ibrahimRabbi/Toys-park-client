@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../Authentication/AuthContext';
 
 const AddToys = () => {
+
+  const {user} = useContext(Context)
+ 
+
     const submitHandler = (e) => {
         e.preventDefault()
 
@@ -42,13 +47,13 @@ const AddToys = () => {
                         <label htmlFor="name">
                            your name
                         </label>
-                        <input className="p-2 rounded-lg" type="text" name="username" placeholder="name" id="name" />
+                        <input defaultValue={user?.displayName} className="p-2 rounded-lg" type="text" name="username" placeholder="name" id="name" />
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor="qyn">
                            your email
                         </label>
-                        <input className="p-2 rounded-lg" name="email" type="email" placeholder="input number" id="qyn" />
+                        <input readOnly defaultValue={user?.email} className="p-2 rounded-lg" name="email" type="email" placeholder="input number" id="qyn" />
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-3 ">

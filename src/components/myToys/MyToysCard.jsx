@@ -1,5 +1,8 @@
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash,FaEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+
 const MyToysCard = ({ obj,handler }) => {
     const {_id, price, toyName, photo, stock, category } = obj
 
@@ -16,8 +19,12 @@ const MyToysCard = ({ obj,handler }) => {
                     <p>  category : {category}</p>
                 </div>
             </div>
+
             <div className='flex flex-col gap-5'>
-                <button className=' btn'>Update</button>
+                <Link to={`/mytoys/${_id}`} className=' btn gap-2'>
+                    Edit
+                    <FaEdit/>
+                </Link>
                 <button onClick={()=> handler(_id)} className='btn gap-2  bg-red-600'>
                     Delete
                     <FaTrash/>

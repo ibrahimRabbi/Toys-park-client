@@ -8,6 +8,7 @@ import AuthContext from "./components/Authentication/AuthContext"
 import AllToys from "./components/allToys/AllToys"
 import MyToys from "./components/myToys/MyToys"
 import AddToys from "./components/addToys/AddToys"
+import EditToys from "./components/myToys/EditToys"
 
 
 function App() {
@@ -42,6 +43,11 @@ function App() {
         {
           path: '/addtoys',
           element: <AddToys />
+        },
+        {
+          path: '/mytoys/:id',
+          element: <EditToys />,
+          loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
         },
 
 

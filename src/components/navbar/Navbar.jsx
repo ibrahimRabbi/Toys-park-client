@@ -7,7 +7,7 @@ import { Context } from '../Authentication/AuthContext';
 const Navbar = () => {
     
     const {user,logOut} = useContext(Context)
-    console.log(user)
+    
     return (
         <nav className='bg-pink-600'>
             <div className="navbar lg:w-[94%] mx-auto">
