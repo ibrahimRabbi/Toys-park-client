@@ -1,0 +1,10 @@
+.gallery{
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+     
+}
+
+.pp{
+    border-radius: 5%;
+    border: 2px solid rgb(240, 6, 84);
+}

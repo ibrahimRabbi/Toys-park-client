@@ -27,7 +27,7 @@ const AddToys = () => {
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res)
+                
                 alert('added done')
              })
         
