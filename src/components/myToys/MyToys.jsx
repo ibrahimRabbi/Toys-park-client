@@ -8,7 +8,7 @@ const MyToys = () => {
 
     const [data, setData] = useState([])
     const { user } = useContext(Context)
-    console.log(user)
+   
 
     useEffect(() => {
         fetch(`http://localhost:5000/toys?email=${user.email}`)
@@ -54,8 +54,7 @@ const MyToys = () => {
                             setData(riminingData)
                              
                         }
-                    })
-                
+                    }) 
             }
         })
 
