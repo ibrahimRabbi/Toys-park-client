@@ -1,15 +1,18 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation,useNavigate } from "react-router-dom";
 import { Context } from "../Authentication/AuthContext";
 import SigninProvider from "./SigninProvider";
-
+import Swal from 'sweetalert2'
 
 
 
 const SignIn = () => {
     
     
-     const {signIn} = useContext(Context)
+    const { signIn } = useContext(Context)
+    const location = useLocation()
+    const redirectTo = location.state?.from?.pathname || '/'
+    const navigate = useNavigate()
 
     const loginHandler = (e) => {
         e.preventDefault()
@@ -18,7 +21,13 @@ const SignIn = () => {
 
         signIn(email, pass)
             .then(res => {
-            alert('logiong')
+                Swal.fire({
+                    title: 'Log In Successfull',
+                    text: 'keep Rock',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+               navigate(redirectTo)
             })
         .catch(error=>console.log(error.message))
          

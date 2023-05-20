@@ -2,7 +2,11 @@ import { useContext } from "react";
 import { Context } from "../Authentication/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import SigninProvider from "./SigninProvider";
- 
+import Swal from "sweetalert2"; 
+
+
+
+
 const SignUp = () => {
 
     const  {signUp,profile} = useContext(Context)
@@ -18,9 +22,15 @@ const SignUp = () => {
         
         signUp(email, password)
             .then(res => {
-                profile(res.user,name,photo)
+                profile(res.user, name, photo)
+                Swal.fire({
+                    title: 'registation Successfull',
+                    text: 'now you can access any kind of information',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                })
                 navigate('/')
-                //console.log(res.user)
+                
             })
         .catch(error=>console.log(error.message))
        

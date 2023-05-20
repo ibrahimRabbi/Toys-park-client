@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
  import { Context } from '../Authentication/AuthContext';
 import { FaGoogle } from 'react-icons/fa'
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -12,8 +13,12 @@ const SigninProvider = ({redirect}) => {
      const googleHandler = () => {
         signinGoogle()
             .then(res => {
-               // navigate(redirect,{replace:true})
-                alert('done')
+                Swal.fire({
+                    title: 'Log In Successfull',
+                    text: 'keep Rock',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
             })
             .catch(error => console.log(error))
     }

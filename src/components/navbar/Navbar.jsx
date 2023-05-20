@@ -6,7 +6,16 @@ import { Context } from '../Authentication/AuthContext';
 
 const Navbar = () => {
     
-    const {user,logOut} = useContext(Context)
+    const { user, logOut } = useContext(Context)
+    const navigate = useNavigate()
+    
+    const logoutHandler = () => {
+        logOut()
+            .then(res => {
+            navigate('/')
+            })
+        .catch(error=>console.log(error.message))
+    }
     
     return (
         <nav className='bg-pink-600'>
@@ -63,7 +72,7 @@ const Navbar = () => {
                                     </div>
                                 </label>
                             </div>
-                            <button className='bg-slate-200 p-2 rounded-lg text-md font-semibold' onClick={() => logOut()}>Sign out</button>
+                            <button className='bg-slate-200 p-2 rounded-lg text-md font-semibold' onClick={logoutHandler}>Sign out</button>
                         </div> : 
                             <Link to='/signin' className='bg-slate-200 p-2 rounded-lg text-md font-semibold'>Sign In</Link>
                       }

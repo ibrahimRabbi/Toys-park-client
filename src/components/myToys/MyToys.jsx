@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MyToysCard from './MyToysCard';
-
+import Swal from 'sweetalert2';
 
 
 const MyToys = () => {
@@ -14,17 +14,36 @@ const MyToys = () => {
     }, [])
 
     const deleteHandler = (id) => {
-        fetch(`http://localhost:5000/toys/${id}`, {
-            method: "DELETE"
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toys/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        if (res.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'delete successfully',
+                                'success'
+                            )
+                            const riminingData = data.filter(v => v._id !== id)
+                            setData(riminingData)
+                             
+                        }
+                    })
+                
+            }
         })
-            .then(res => res.json())
-            .then(res => {
-                if (res.deletedCount > 0) {
-                    const riminingData = data.filter(v => v._id !== id)
-                    setData(riminingData)
-                    alert('delete done')
-                }
-            })
 
 
     }

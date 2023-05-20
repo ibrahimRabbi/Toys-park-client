@@ -40,9 +40,9 @@ const AuthContext = ({ children }) => {
     }
 
     useEffect(() => {
-        setLoading(false)
-     const subscribe = onAuthStateChanged(auth,(user)=>{
-        setUser(user)
+        const subscribe = onAuthStateChanged(auth,(user)=>{
+            setUser(user)
+            setLoading(false)
      })  
      
         return () => {

@@ -1,24 +1,31 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { Context } from '../Authentication/AuthContext';
-
+import { Bars } from 'react-loader-spinner'
 const PrivetRoute = ({ children }) => {
     const { user,loading} = useContext(Context)
-    
+    const location = useLocation()
+   
+
     if (loading) {
-        return <div>
-            <progress className="progress w-56"></progress>
-            <progress className="progress w-56"></progress>
-            <progress className="progress w-56"></progress>
-            <progress className="progress w-56"></progress>
+        return <div className='my-60 justify-between flex'>
+            <Bars
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="bars-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+            />
          </div>
     }
     if (user) {
         return children
     }
     
-    <Navigate to='/signin'/>
+   return <Navigate to='/signin' state={{from : location}} replace/>
 };
 
 export default PrivetRoute;

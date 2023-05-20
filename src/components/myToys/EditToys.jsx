@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 const EditToys = () => {
     const { _id, toyName, price, stock, category, photo, rating, description } = useLoaderData()
     const navigate = useNavigate()
@@ -26,7 +26,11 @@ const EditToys = () => {
             .then(res => res.json())
             .then(res => {
                 if (res.modifiedCount > 0) {
-                    alert('update sucdessfully')
+                    Swal.fire(
+                        'update Done',
+                        'you can change or update again',
+                        'success'
+                    )
                     navigate('/mytoys')
                 }
             })
