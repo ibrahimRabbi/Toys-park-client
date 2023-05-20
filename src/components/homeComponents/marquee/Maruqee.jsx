@@ -2,7 +2,7 @@ import React from 'react';
 import Marquee from "react-fast-marquee";
 const Maruqee = () => {
     return (
-        <section className='my-28 w-[90%] mx-auto'>
+        <section className='my-28 lg:w-[90%] w-full mx-auto'>
             <Marquee>
                 <img width={220} src="../../../../public/logos/logo1.jpg" alt="" />
                 <img width={220} src="../../../../public/logos/logo2.jpg" alt="" />

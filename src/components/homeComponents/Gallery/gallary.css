@@ -1,5 +1,5 @@
 .gallery{
-    display: grid;
+    
     grid-template-columns: 2fr 4fr 2fr;
      
 }
@@ -10,3 +10,8 @@
 }
 
    
+/* @media only screen and (max-width :460px) {
+    .gallery{
+        grid-template-columns: repeat(1fr ,100%);
+    }
+} */
