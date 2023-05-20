@@ -6,6 +6,7 @@ import Maruqee from '../marquee/Maruqee';
 import PopularToy from '../popularToys/PopularToy';
 
 const Home = () => {
+   
     return (
         <div>
             <Banner />
