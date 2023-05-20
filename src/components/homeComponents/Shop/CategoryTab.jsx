@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Disnap from './Disnap';
 import Marvel from './marvel';
+import Universal from './Universal';
 import WarnerBros from './WarnerBros';
 
 const CategoryTab = () => {
@@ -16,23 +17,23 @@ const CategoryTab = () => {
                 <hr className='border-pink-500' />
             </div>
            
-            <div className='font-semibold'>
+            <div className='font-semibold mt-16'>
                 <Tabs>
                     <TabList  >
                         <Tab>Marvel</Tab>
                         <Tab>Warner Bros</Tab>
-                        <Tab>Universel</Tab>
+                        <Tab>Universal</Tab>
                         <Tab>Disnap</Tab>
                     </TabList>
-
-                    <TabPanel>
+                   
+                    <TabPanel>    
                         <Marvel />
                     </TabPanel>
                     <TabPanel>
                         <WarnerBros />
                     </TabPanel>
                     <TabPanel>
-                        <h2>universel</h2>
+                         <Universal/>
                     </TabPanel>
                     <TabPanel>
                         <Disnap />

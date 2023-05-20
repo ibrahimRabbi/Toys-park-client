@@ -21,6 +21,7 @@ const SignIn = () => {
 
         signIn(email, pass)
             .then(res => {
+                e.target.reset()
                 Swal.fire({
                     title: 'Log In Successfull',
                     text: 'keep Rock',
@@ -50,7 +51,7 @@ const SignIn = () => {
                 <span className="text-xl font-semibold text-gray-600">or</span>
 
                 <div className="flex justify-center mt-5">
-                    <SigninProvider />
+                    <SigninProvider redirect={redirectTo} />
                 </div>
             </div>
         </section>

@@ -1,29 +1,32 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
-const Disnap = () => {
-    const [disnap, setDisnap] = useState([])
+const Universal = () => {
+    
+         const [universal, setUniversal] = useState([])
+    
     useEffect(() => {
-        fetch('http://localhost:5000/category/disnap')
+        fetch('http://localhost:5000/category/universal')
             .then(res => res.json())
-            .then(res => setDisnap(res))
+            .then(res => setUniversal(res))
     }, [])
-    return (
 
+    return (
         <section>
             <div className='mb-10 mt-5 w-1/2 space-y-4 text-start text-pink-600'>
-                <h1 className='text-2xl  font-semibold'>Disnap</h1>
+                <h1 className='text-2xl  font-semibold'>Universal</h1>
                 <p className='text-sm text-gray-400'>Discover the Magic Unicorn Castle: Step into a world of enchantment with the Magic Unicorn Castle toy set. This whimsical playset includes a majestic castle, complete</p>
                 <hr className='border-pink-500' />
             </div>
-            
+
             <div className='grid grid-cols-3 gap-10 my-14'>
                 {
-                    disnap.map(v => <Card obj={v} key={v._id} />)
+                    universal.map(v => <Card obj={v} key={v._id} />)
                 }
             </div>
         </section>
        
     );
+    
 };
 
-export default Disnap;
+export default Universal;

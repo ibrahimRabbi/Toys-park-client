@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../Authentication/AuthContext';
-
+import Swal from 'sweetalert2';
 const AddToys = () => {
 
   const {user} = useContext(Context)
@@ -26,9 +26,16 @@ const AddToys = () => {
             body : JSON.stringify(createObj)
         })
             .then(res => res.json())
-            .then(res => {
+            .then(res => {         
+                if (res.insertedId) {
+                    e.target.reset()
+                    Swal.fire(
+                        'Toy added Successfully',
+                        '',
+                        'success'
+                    )
+                }
                 
-                alert('added done')
              })
         
     }
@@ -67,7 +74,7 @@ const AddToys = () => {
                         <label htmlFor="qyn">
                             stock add
                         </label>
-                        <input className="p-2 rounded-lg" name="stock" type="number" placeholder="input number" id="qyn" />
+                        <input className="p-2 rounded-lg" name="stock" type="text" placeholder="input number" id="qyn" />
                     </div>
                 </div>
 
@@ -77,7 +84,7 @@ const AddToys = () => {
                         <label htmlFor="price">
                             initial starting price
                         </label>
-                        <input className="p-2 rounded-lg" name="perPrice" type="number" placeholder="per price" id="price" />
+                        <input className="p-2 rounded-lg" name="perPrice" type="price" placeholder="per price" id="price" />
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor="category">

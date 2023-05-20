@@ -8,13 +8,14 @@ import { useNavigate } from 'react-router-dom';
 const SigninProvider = ({redirect}) => {
     
     const { signinGoogle } = useContext(Context)
-   // const navigate = useNavigate();
+    const navigate = useNavigate();
     
      const googleHandler = () => {
         signinGoogle()
             .then(res => {
+                navigate(redirect)
                 Swal.fire({
-                    title: 'Log In Successfull',
+                    title: 'Sign in Successfull',
                     text: 'keep Rock',
                     icon: 'success',
                     confirmButtonText: 'Cool'

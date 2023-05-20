@@ -23,6 +23,7 @@ const SignUp = () => {
         signUp(email, password)
             .then(res => {
                 profile(res.user, name, photo)
+                e.target.reset()
                 Swal.fire({
                     title: 'registation Successfull',
                     text: 'now you can access any kind of information',
@@ -59,7 +60,7 @@ const SignUp = () => {
                 <p className="font-semibold">already have an account ? <Link to='/signin' className="text-pink-600 font-semibold">Sign In</Link></p>
                 <span className="text-xl font-semibold text-gray-600">or</span>
                 <div className="flex justify-center mt-5">
-                    <SigninProvider />
+                    <SigninProvider redirect='/' />
                 </div>
             </div>
              

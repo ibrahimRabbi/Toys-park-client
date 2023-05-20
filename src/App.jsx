@@ -36,7 +36,7 @@ function App() {
         {
           path: '/alltoys',
           element: <AllToys />,
-          loader: () => fetch('http://localhost:5000/toys')
+          loader: () => fetch('http://localhost:5000/toyslimit')
         },
         {
           path: '/alltoys/:id',
