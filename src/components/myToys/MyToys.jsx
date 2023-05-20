@@ -1,17 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import MyToysCard from './MyToysCard';
 import Swal from 'sweetalert2';
+import { Context } from '../Authentication/AuthContext';
 
 
 const MyToys = () => {
 
     const [data, setData] = useState([])
+    const { user } = useContext(Context)
+    console.log(user)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=ibrahimrabbihere@gmail.com`)
+        fetch(`http://localhost:5000/toys?email=${user.email}`)
             .then(res => res.json())
             .then(res => setData(res))
     }, [])
+
+    const ascending = () => {
+        fetch(`http://localhost:5000/toys?email=${user.email}&sort=1`)
+            .then(res => res.json())
+            .then(res => setData(res))
+    }
+    const descending = () => {
+        fetch(`http://localhost:5000/toys?email=${user.email}&sort=-1`)
+            .then(res => res.json())
+            .then(res => setData(res))
+    }
 
     const deleteHandler = (id) => {
 
@@ -53,6 +67,10 @@ const MyToys = () => {
             <div className='space-y-5'>
                 <h1 className='text-4xl text-center'>My Products</h1>
                 <hr />
+            </div>
+            <div className='flex justify-end gap-3 my-10'>
+                <button onClick={ascending} className='btn bg-pink-600'>sort ascending</button>
+                <button onClick={descending} className='btn bg-pink-600'>sort descending</button>
             </div>
             <div>
                 {
