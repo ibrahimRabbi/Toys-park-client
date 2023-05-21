@@ -16,6 +16,9 @@ const AllToys = () => {
                 .then(res => setSubTotal(res))
    }
 
+    useEffect(() => {
+        document.title = "toys-park || AllToys"
+    }, [])
     
     
     const searchHandler = (e) => {

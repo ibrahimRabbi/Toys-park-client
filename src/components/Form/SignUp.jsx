@@ -1,4 +1,4 @@
-import { useContext,useState } from "react";
+import { useContext,useState,useEffect } from "react";
 import { Context } from "../Authentication/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import SigninProvider from "./SigninProvider";
@@ -48,7 +48,9 @@ const SignUp = () => {
     }
 
      
-
+    useEffect(() => {
+        document.title = "toys-park || signUp"
+    }, [])
 
 
     return (

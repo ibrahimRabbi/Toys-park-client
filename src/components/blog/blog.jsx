@@ -1,6 +1,10 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 const Blog = () => {
+
+    useEffect(() => {
+        document.title = "toys-park || blog"
+    }, [])
     return (
         <div className='my-20 m-auto w-[70%]'>
             <div className='mt-4 bg-slate-300 p-5 rounded-md space-y-5'>

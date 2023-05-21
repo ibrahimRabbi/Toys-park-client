@@ -11,6 +11,9 @@ const MyToys = () => {
    
 
     useEffect(() => {
+         
+        document.title = "toys-park || MyToys"
+        
         fetch(`http://localhost:5000/toys?email=${user.email}`)
             .then(res => res.json())
             .then(res => setData(res))

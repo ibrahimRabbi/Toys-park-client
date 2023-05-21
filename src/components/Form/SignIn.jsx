@@ -1,4 +1,4 @@
-import { useContext,useState } from "react";
+import { useContext,useState,useEffect } from "react";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import { Context } from "../Authentication/AuthContext";
 import SigninProvider from "./SigninProvider";
@@ -7,7 +7,6 @@ import Swal from 'sweetalert2'
 
 
 const SignIn = () => {
-    
     
     const { signIn } = useContext(Context)
     const location = useLocation()
@@ -42,6 +41,10 @@ const SignIn = () => {
         })
          
     }
+
+    useEffect(() => {
+        document.title = "toys-park || signIn"
+    }, [])
 
     return (
         <section className="lg:flex items-center w-[90%] mx-auto my-11">

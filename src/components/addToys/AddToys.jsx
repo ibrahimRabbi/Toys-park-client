@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from '../Authentication/AuthContext';
 import Swal from 'sweetalert2';
+
 const AddToys = () => {
 
   const {user} = useContext(Context)
  
 
+    
+    
     const submitHandler = (e) => {
         e.preventDefault()
 
@@ -19,7 +22,8 @@ const AddToys = () => {
         const rating = e.target.rating.value;
         const description = e.target.description.value;
         const createObj = {name,email,toyName,price,photo,category,stock,rating,description}
-         
+     
+        
         fetch('http://localhost:5000/toys', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
@@ -36,9 +40,13 @@ const AddToys = () => {
                     )
                 }
                 
-             })
-        
+             })    
     }
+
+
+    useEffect(() => {
+        document.title = "toys-park || Add-toys"
+    }, [])
 
 
     return (
