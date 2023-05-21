@@ -56,7 +56,7 @@ const SignUp = () => {
     return (
         <section className="flex items-center w-[90%] mx-auto" >
             <div className="w-1/2 hidden lg:inline-block">
-                <img src="../../../public/signup.png" alt="" />
+                <img src="https://i.ibb.co/zN0vDwx/undraw-Sign-up-n6im.png" alt="undraw-Sign-up-n6im" />
             </div>
             <div className="text-center m-auto my-10 py-5 border rounded-lg lg:w-[50%] w-[90%]">
                 <h1 className="text-pink-600 text-2xl font-semibold">Sign Up</h1>

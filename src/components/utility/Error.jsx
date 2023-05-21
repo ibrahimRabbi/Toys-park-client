@@ -5,7 +5,7 @@ const Error = () => {
     return (
         <section className='flex justify-center'>
             <div className='text-center'>
-                <img className='w-[100%] h-[100vh]' src="../../../public/404Img.jpg" alt="" />
+                <img className='w-[100%] h-[100vh]' src="https://i.ibb.co/PQc21Hj/404Img.jpg" alt="404Img"/>
                 <Link className='bg-pink-500 p-3 text-slate-50 rounded-md px-12 relative -top-16' to='/'>Go Home</Link>
             </div>
         </section>

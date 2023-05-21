@@ -49,7 +49,7 @@ const SignIn = () => {
     return (
         <section className="lg:flex items-center w-[90%] mx-auto my-11">
             <div className="w-1/2 hidden lg:inline-block">
-                <img src="../../../public/login.png" alt="" />
+                <img src="https://i.ibb.co/c3L5p60/undraw-Login-re-4vu2.png" alt="undraw-Login-re-4vu2" />
             </div>
             <div className="text-center m-auto my-10 py-5  border rounded-lg lg:w-1/2 w-[90%]">
                 <h1 className="text-pink-600 text-2xl font-semibold">Sign In</h1>
