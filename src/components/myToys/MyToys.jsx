@@ -8,24 +8,24 @@ const MyToys = () => {
 
     const [data, setData] = useState([])
     const { user } = useContext(Context)
-   
+
 
     useEffect(() => {
-         
+
         document.title = "toys-park || MyToys"
-        
-        fetch(`http://localhost:5000/toys?email=${user.email}`)
+
+        fetch(`https://toys-park-server.vercel.app/toys?email=${user.email}`)
             .then(res => res.json())
             .then(res => setData(res))
     }, [])
 
     const ascending = () => {
-        fetch(`http://localhost:5000/toys?email=${user.email}&sort=1`)
+        fetch(`https://toys-park-server.vercel.app/toys?email=${user.email}&sort=1`)
             .then(res => res.json())
             .then(res => setData(res))
     }
     const descending = () => {
-        fetch(`http://localhost:5000/toys?email=${user.email}&sort=-1`)
+        fetch(`https://toys-park-server.vercel.app/toys?email=${user.email}&sort=-1`)
             .then(res => res.json())
             .then(res => setData(res))
     }
@@ -42,7 +42,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://toys-park-server.vercel.app/toys/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -55,9 +55,9 @@ const MyToys = () => {
                             )
                             const riminingData = data.filter(v => v._id !== id)
                             setData(riminingData)
-                             
+
                         }
-                    }) 
+                    })
             }
         })
 
@@ -79,7 +79,7 @@ const MyToys = () => {
                     data.map(v => <MyToysCard key={v._id} obj={v} handler={deleteHandler} />)
                 }
             </div>
-            
+
         </section >
     );
 };

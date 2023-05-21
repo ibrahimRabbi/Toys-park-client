@@ -1,16 +1,16 @@
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PopularCard from './PopularCard';
 
 const PopularToy = () => {
 
-    const  [data,setData] = useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/popular')
+        fetch('https://toys-park-server.vercel.app/popular')
             .then(res => res.json())
             .then(res => setData(res))
     }, [])
-    
+
 
     return (
         <section className='my-28 w-[90%] mx-auto'>

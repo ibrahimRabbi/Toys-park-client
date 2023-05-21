@@ -1,10 +1,10 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
 const WarnerBros = () => {
     const [warner, setWarner] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/category/warner bros')
+        fetch('https://toys-park-server.vercel.app/category/warner bros')
             .then(res => res.json())
             .then(res => setWarner(res))
     }, [])
@@ -15,7 +15,7 @@ const WarnerBros = () => {
                 <p className='text-sm text-gray-400'>Discover the Magic Unicorn Castle: Step into a world of enchantment with the Magic Unicorn Castle toy set. This whimsical playset includes a majestic castle, complete</p>
                 <hr className='border-pink-500' />
             </div>
-            
+
             <div data-aos="fade-up"
                 data-aos-anchor-placement="bottom-bottom"
                 className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
@@ -24,7 +24,7 @@ const WarnerBros = () => {
                 }
             </div>
         </section>
-        
+
     );
 };
 

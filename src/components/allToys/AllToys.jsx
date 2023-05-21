@@ -6,32 +6,32 @@ import TableRow from './TableRow';
 const AllToys = () => {
 
     const load = useLoaderData()
- 
+
     const [subTotalToys, setSubTotal] = useState(load)
-    
+
 
     const allToyHandler = () => {
-            fetch('http://localhost:5000/toys')
-                .then(res => res.json())
-                .then(res => setSubTotal(res))
-   }
+        fetch('https://toys-park-server.vercel.app/toys')
+            .then(res => res.json())
+            .then(res => setSubTotal(res))
+    }
 
     useEffect(() => {
         document.title = "toys-park || AllToys"
     }, [])
-    
-    
+
+
     const searchHandler = (e) => {
         e.preventDefault()
         const value = e.target.search.value
-        
-        fetch(`http://localhost:5000/search/${value}`)
-            .then(res => res.json())
-        .then(res=>setSubTotal(res))
 
-}
-     
-    
+        fetch(`https://toys-park-server.vercel.app/search/${value}`)
+            .then(res => res.json())
+            .then(res => setSubTotal(res))
+
+    }
+
+
     return (
 
         <section className='w-[90%] my-16 mx-auto'>
@@ -65,11 +65,11 @@ const AllToys = () => {
                     </tbody>
                 </table>
             </div>
-                <div className=' mt-10'>
-                    <button className='btn block mx-auto bg-pink-500' onClick={allToyHandler}>see All Toys</button>
-                </div>
+            <div className=' mt-10'>
+                <button className='btn block mx-auto bg-pink-500' onClick={allToyHandler}>see All Toys</button>
+            </div>
 
-       </section>
+        </section>
     );
 };
 

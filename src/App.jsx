@@ -37,12 +37,12 @@ function App() {
         {
           path: '/alltoys',
           element: <AllToys />,
-          loader: () => fetch('http://localhost:5000/toyslimit')
+          loader: () => fetch('https://toys-park-server.vercel.app/toyslimit')
         },
         {
           path: '/alltoys/:id',
-          element: <PrivetRoute><ShowDetials/></PrivetRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+          element: <PrivetRoute><ShowDetials /></PrivetRoute>,
+          loader: ({ params }) => fetch(`https://toys-park-server.vercel.app/toys/${params.id}`)
         },
         {
           path: '/mytoys',
@@ -55,11 +55,11 @@ function App() {
         {
           path: '/mytoys/:id',
           element: <EditToys />,
-          loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+          loader: ({ params }) => fetch(`https://toys-park-server.vercel.app/toys/${params.id}`)
         },
         {
           path: '/blog',
-          element : <Blog/>
+          element: <Blog />
         }
       ]
     }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 const Universal = () => {
-    
-         const [universal, setUniversal] = useState([])
-    
+
+    const [universal, setUniversal] = useState([])
+
     useEffect(() => {
-        fetch('http://localhost:5000/category/universal')
+        fetch('https://toys-park-server.vercel.app/category/universal')
             .then(res => res.json())
             .then(res => setUniversal(res))
     }, [])
@@ -26,9 +26,9 @@ const Universal = () => {
                 }
             </div>
         </section>
-       
+
     );
-    
+
 };
 
 export default Universal;

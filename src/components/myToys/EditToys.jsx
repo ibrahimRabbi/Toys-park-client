@@ -18,7 +18,7 @@ const EditToys = () => {
         const obj = { toyName, price, photo, category, stock, rating, description }
 
 
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://toys-park-server.vercel.app/update/${_id}`, {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(obj)

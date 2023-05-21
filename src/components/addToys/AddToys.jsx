@@ -4,11 +4,11 @@ import Swal from 'sweetalert2';
 
 const AddToys = () => {
 
-  const {user} = useContext(Context)
- 
+    const { user } = useContext(Context)
 
-    
-    
+
+
+
     const submitHandler = (e) => {
         e.preventDefault()
 
@@ -16,21 +16,21 @@ const AddToys = () => {
         const email = e.target.email.value;
         const toyName = e.target.toyName.value;
         const stock = e.target.stock.value;
-        const price = e.target.perPrice.value; 
-        const category = e.target.category.value; 
+        const price = e.target.perPrice.value;
+        const category = e.target.category.value;
         const photo = e.target.photoUrl.value;
         const rating = e.target.rating.value;
         const description = e.target.description.value;
-        const createObj = {name,email,toyName,price,photo,category,stock,rating,description}
-     
-        
-        fetch('http://localhost:5000/toys', {
+        const createObj = { name, email, toyName, price, photo, category, stock, rating, description }
+
+
+        fetch('https://toys-park-server.vercel.app/toys', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
-            body : JSON.stringify(createObj)
+            body: JSON.stringify(createObj)
         })
             .then(res => res.json())
-            .then(res => {         
+            .then(res => {
                 if (res.insertedId) {
                     e.target.reset()
                     Swal.fire(
@@ -39,8 +39,8 @@ const AddToys = () => {
                         'success'
                     )
                 }
-                
-             })    
+
+            })
     }
 
 
@@ -60,13 +60,13 @@ const AddToys = () => {
                 <div className="grid grid-cols-2 gap-3 ">
                     <div className="flex flex-col">
                         <label htmlFor="name">
-                           your name
+                            your name
                         </label>
                         <input defaultValue={user?.displayName} className="p-2 rounded-lg" type="text" name="username" placeholder="name" id="name" />
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor="qyn">
-                           your email
+                            your email
                         </label>
                         <input readOnly defaultValue={user?.email} className="p-2 rounded-lg" name="email" type="email" placeholder="input number" id="qyn" />
                     </div>
@@ -105,7 +105,7 @@ const AddToys = () => {
                 <div className="grid grid-cols-2 gap-3 ">
                     <div className="flex flex-col">
                         <label htmlFor="price">
-                          rating
+                            rating
                         </label>
                         <input className="p-2 rounded-lg" name="rating" type="text" placeholder="rating" id="price" />
                     </div>
@@ -125,7 +125,7 @@ const AddToys = () => {
                     <textarea className="p-2 rounded-lg" type="text" name="description" placeholder="product description" id="photo" />
                 </div>
 
-                
+
 
                 <input className=" w-full p-2 rounded-lg font-semibold bg-pink-600 text-slate-50" type="submit" value="submit" />
             </form>
