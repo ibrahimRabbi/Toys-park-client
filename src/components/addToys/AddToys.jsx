@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../Authentication/AuthContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const AddToys = () => {
 
     const { user } = useContext(Context)
 
-
+const navigate = useNavigate()
 
 
     const submitHandler = (e) => {
@@ -33,6 +34,7 @@ const AddToys = () => {
             .then(res => {
                 if (res.insertedId) {
                     e.target.reset()
+                   navigate('/mytoys')
                     Swal.fire(
                         'Toy added Successfully',
                         '',

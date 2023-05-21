@@ -21,9 +21,7 @@ const Marvel = () => {
         <hr className='border-pink-500' />
       </div>
 
-      <div data-aos="fade-up"
-        data-aos-anchor-placement="bottom-bottom"
-        className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
         {
           marvel.map(v => <Card obj={v} key={v._id} />)
         }

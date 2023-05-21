@@ -18,8 +18,7 @@ const Universal = () => {
                 <hr className='border-pink-500' />
             </div>
 
-            <div data-aos="fade-up"
-                data-aos-anchor-placement="bottom-bottom"
+            <div  
                 className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
                 {
                     universal.map(v => <Card obj={v} key={v._id} />)

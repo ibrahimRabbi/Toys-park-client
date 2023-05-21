@@ -14,20 +14,26 @@ const MyToys = () => {
 
         document.title = "toys-park || MyToys"
 
-        fetch(`https://toys-park-server.vercel.app/toys?email=${user.email}`)
-            .then(res => res.json())
-            .then(res => setData(res))
+        if (user) {
+            fetch(`https://toys-park-server.vercel.app/toys?email=${user?.email}`)
+                .then(res => res.json())
+                .then(res => setData(res))
+        }
     }, [])
 
     const ascending = () => {
-        fetch(`https://toys-park-server.vercel.app/toys?email=${user.email}&sort=1`)
-            .then(res => res.json())
-            .then(res => setData(res))
+        if (user) {
+            fetch(`https://toys-park-server.vercel.app/toys?email=${user?.email}&sort=1`)
+                .then(res => res.json())
+                .then(res => setData(res))
+       }
     }
     const descending = () => {
-        fetch(`https://toys-park-server.vercel.app/toys?email=${user.email}&sort=-1`)
-            .then(res => res.json())
-            .then(res => setData(res))
+        if (user) {
+            fetch(`https://toys-park-server.vercel.app/toys?email=${user?.email}&sort=-1`)
+                .then(res => res.json())
+                .then(res => setData(res))
+       }
     }
 
     const deleteHandler = (id) => {
