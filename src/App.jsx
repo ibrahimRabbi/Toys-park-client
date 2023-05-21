@@ -11,6 +11,7 @@ import AddToys from "./components/addToys/AddToys"
 import EditToys from "./components/myToys/EditToys"
 import ShowDetials from "./components/ShowDetials/ShowDetials"
 import PrivetRoute from "./components/privertRoute/PrivetRoute"
+import Blog from "./components/blog/blog"
 
 
 function App() {
@@ -56,8 +57,10 @@ function App() {
           element: <EditToys />,
           loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
         },
-
-
+        {
+          path: '/blog',
+          element : <Blog/>
+        }
       ]
     }
 
