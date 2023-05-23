@@ -8,7 +8,7 @@ const MyToys = () => {
 
     const [data, setData] = useState([])
     const { user } = useContext(Context)
-
+    const [btn,setBtn] = useState(true)
 
     useEffect(() => {
 
@@ -19,21 +19,22 @@ const MyToys = () => {
                 .then(res => res.json())
                 .then(res => setData(res))
         }
-    }, [])
+    }, [user])
 
-    const ascending = () => {
-        if (user) {
-            fetch(`https://toys-park-server.vercel.app/toys?email=${user?.email}&sort=1`)
-                .then(res => res.json())
-                .then(res => setData(res))
-       }
-    }
-    const descending = () => {
-        if (user) {
-            fetch(`https://toys-park-server.vercel.app/toys?email=${user?.email}&sort=-1`)
-                .then(res => res.json())
-                .then(res => setData(res))
-       }
+    
+    const sorting = () => {   
+        setBtn((pre) => !pre)
+        let sortingValue = ''
+        
+        if (btn) {
+           sortingValue = -1
+        } else {
+            sortingValue = 1
+        }
+
+        fetch(`https://toys-park-server.vercel.app/toys?email=${user?.email}&sort=${sortingValue}`)
+            .then(res => res.json())
+            .then(res => setData(res))
     }
 
     const deleteHandler = (id) => {
@@ -77,8 +78,7 @@ const MyToys = () => {
                 <hr />
             </div>
             <div className='flex justify-end gap-3 my-10'>
-                <button onClick={ascending} className='btn bg-pink-600'>sort ascending</button>
-                <button onClick={descending} className='btn bg-pink-600'>sort descending</button>
+                <button onClick={sorting} className='btn bg-pink-600'>{btn?'sort hihg to low' : "sort low to high"}</button>
             </div>
             <div>
                 {

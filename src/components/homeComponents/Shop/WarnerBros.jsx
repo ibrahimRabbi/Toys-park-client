@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-const WarnerBros = () => {
-    const [warner, setWarner] = useState([])
+const WarnerBros = ({category}) => {
+    
 
-    useEffect(() => {
-        fetch('https://toys-park-server.vercel.app/category/warner bros')
-            .then(res => res.json())
-            .then(res => setWarner(res))
-    }, [])
+
+
     return (
         <section>
             <div data-aos="fade-right" className='mb-10 mt-5 lg:w-1/2 space-y-4 text-start text-pink-600'>
@@ -16,12 +13,21 @@ const WarnerBros = () => {
                 <hr className='border-pink-500' />
             </div>
 
-            <div  
+            {category ? <div
                 className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
                 {
-                    warner.map(v => <Card obj={v} key={v._id} />)
+                    category.map(v => <Card obj={v} key={v._id} />)
                 }
-            </div>
+            </div> : <Bars
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="bars-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+            />
+            }
         </section>
 
     );

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Bars } from 'react-loader-spinner';
 import Card from './Card';
-const Disnap = () => {
-    const [disnap, setDisnap] = useState([])
-    useEffect(() => {
-        fetch('https://toys-park-server.vercel.app/category/disnap')
-            .then(res => res.json())
-            .then(res => setDisnap(res))
-    }, [])
+const Disnap = ({category}) => {
+    
+
+
     return (
 
         <section>
@@ -16,12 +14,24 @@ const Disnap = () => {
                 <hr className='border-pink-500' />
             </div>
 
-            <div  
-                className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
-                {
-                    disnap.map(v => <Card obj={v} key={v._id} />)
+            
+                {category ? <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
+                    {
+                        category.map(v => <Card obj={v} key={v._id} />)
+                    }
+            </div> : <div className=' my-44 text-center flex justify-center mx-auto'>
+                        <Bars
+                            height="120"
+                            width="150"
+                            color="#4fa94d"
+                            ariaLabel="bars-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                </div>
                 }
-            </div>
+            
         </section>
 
     );

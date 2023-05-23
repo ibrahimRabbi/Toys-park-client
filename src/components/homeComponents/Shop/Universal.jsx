@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-const Universal = () => {
+const Universal = ({category}) => {
 
-    const [universal, setUniversal] = useState([])
-
-    useEffect(() => {
-        fetch('https://toys-park-server.vercel.app/category/universal')
-            .then(res => res.json())
-            .then(res => setUniversal(res))
-    }, [])
+     
 
     return (
         <section>
@@ -18,12 +12,21 @@ const Universal = () => {
                 <hr className='border-pink-500' />
             </div>
 
-            <div  
+            {category ? <div
                 className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
                 {
-                    universal.map(v => <Card obj={v} key={v._id} />)
+                    category.map(v => <Card obj={v} key={v._id} />)
                 }
-            </div>
+            </div> : <Bars
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="bars-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+            />
+            }
         </section>
 
     );

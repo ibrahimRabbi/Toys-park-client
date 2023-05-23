@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Disnap from './Disnap';
@@ -8,6 +8,20 @@ import WarnerBros from './WarnerBros';
 
 const CategoryTab = () => {
 
+    const [data, setData] = useState(null)
+   
+
+    const func = (category) => {
+            fetch(`https://toys-park-server.vercel.app/category/${category}`)
+                .then(res => res.json())
+                .then(res => setData(res))
+    }
+
+    useEffect(() => {
+        fetch(`https://toys-park-server.vercel.app/category/marvel`)
+            .then(res => res.json())
+            .then(res => setData(res))
+    },[])
    
     return (
         <section className='w-[90%] mx-auto mt-20'>
@@ -19,24 +33,24 @@ const CategoryTab = () => {
            
             <div className='font-semibold mt-16'>
                 <Tabs>
-                    <TabList  >
+                    <TabList>
                         <Tab>Marvel</Tab>
-                        <Tab>Warner Bros</Tab>
-                        <Tab>Universal</Tab>
-                        <Tab>Disnap</Tab>
+                        <Tab onClick={() => func('warner bros')} >Warner Bros</Tab>
+                        <Tab onClick={() => func('universal')}>Universal</Tab>
+                        <Tab onClick={() => func('disnap')}>Disnap</Tab>
                     </TabList>
                    
                     <TabPanel>    
-                        <Marvel />
+                        <Marvel category={data} />
                     </TabPanel>
                     <TabPanel>
-                        <WarnerBros />
+                        <WarnerBros category={data} />
                     </TabPanel>
                     <TabPanel>
-                         <Universal/>
+                        <Universal category={data} />
                     </TabPanel>
                     <TabPanel>
-                        <Disnap />
+                        <Disnap category={data} />
                     </TabPanel>
                 </Tabs>
             </div>

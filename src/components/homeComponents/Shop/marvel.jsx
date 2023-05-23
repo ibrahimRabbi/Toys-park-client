@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Bars } from 'react-loader-spinner';
 import Card from './Card';
 
-const Marvel = () => {
+const Marvel = ({category}) => {
 
-  const [marvel, setMarvel] = useState([])
-
-
-  useEffect(() => {
-    fetch('https://toys-park-server.vercel.app/category/marvel')
-      .then(res => res.json())
-      .then(res => setMarvel(res))
-  }, [])
+   
 
 
   return (
@@ -21,11 +15,21 @@ const Marvel = () => {
         <hr className='border-pink-500' />
       </div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
-        {
-          marvel.map(v => <Card obj={v} key={v._id} />)
-        }
-      </div>
+      {category ?
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 my-14'>
+          {
+            category.map(v => <Card obj={v} key={v._id} />)
+          }
+        </div> : <Bars
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+}
     </section>
 
   );

@@ -30,7 +30,7 @@ const Navbar = () => {
                             user ? <ul tabIndex={0} className="menu menu-compact text-slate-900 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
                                     <Link className='flex items-end gap-1'>
-                                        <img className='rounded-full' width={50} src="../../../public/logo.png" border="0" />
+                                        <img className='rounded-full' width={50} src="https://i.ibb.co/vX9bmCN/Pngtree-bull-cow-animal-old-cow-5748303.png" border="0" />
                                         <h2 className="text-2xl lg:static relative -top-4  font-semibold text-slate-800 normal-case">Toys park</h2>
                                     </Link>
                                 </li>
