@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Context } from '../../Authentication/AuthContext';
 
-const Card = ({ obj, }) => {
+const Card = ({ obj }) => {
     
     const { _id, price, toyName, photo, description, rating } = obj
     const {user} = useContext(Context)
@@ -38,19 +38,27 @@ const Card = ({ obj, }) => {
 
     
     return (
-        <div className="card shadow-xl border border-pink-500">
-            <figure><img className='w-[250px] p-5 rounded-lg' src={photo} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">{toyName}</h2>
-                <h2 className="text-md"> Price : ${price}</h2>
-                <p>{description}</p>
-                <div className="card-actions justify-between items-center">
+         
+            <div className={`flex gap-8 border p-5 rounded-lg shadow-md`}>
+                <div className="avatar">
+                    <div className="w-32 rounded-xl">
+                        <img src={photo} />
+                    </div>
+                </div>
+                <div className=" ">
+                    <h2 className="text-2xl font-semibold">{toyName}</h2>
+                    <p className=' text-gray-500'>{description}</p>
+                    <div className='flex justify-between items-center mt-5'>
+                    <div>
+                    <p>price -<span className='text-yellow-400 font-semibold text-xl'>${price}</span></p>
                     <Rating style={{ maxWidth: 120 }} value={rating} readOnly />
-                    {/* <Link to={} className="btn bg-pink-600">View details</Link> */}
-                    <button className='btn' onClick={()=>handler(_id)}>View Details</button>
+                    </div>
+                        <button className='btn' onClick={() => handler(_id)}>View Details</button>
+                    </div>
                 </div>
             </div>
-        </div>
+             
+         
     );
 };
 

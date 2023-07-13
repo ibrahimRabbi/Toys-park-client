@@ -8,7 +8,7 @@ const MyToys = () => {
 
     const [data, setData] = useState([])
     const { user } = useContext(Context)
-    const [btn,setBtn] = useState(true)
+    const [btn, setBtn] = useState(true)
 
     useEffect(() => {
 
@@ -21,13 +21,13 @@ const MyToys = () => {
         }
     }, [user])
 
-    
-    const sorting = () => {   
+
+    const sorting = () => {
         setBtn((pre) => !pre)
         let sortingValue = ''
-        
+
         if (btn) {
-           sortingValue = -1
+            sortingValue = -1
         } else {
             sortingValue = 1
         }
@@ -78,7 +78,7 @@ const MyToys = () => {
                 <hr />
             </div>
             <div className='flex justify-end gap-3 my-10'>
-                <button onClick={sorting} className='btn bg-pink-600'>{btn?'sort hihg to low' : "sort low to high"}</button>
+                <button onClick={sorting} className='btn bg-pink-600'>{btn ? 'sort hihg to low' : "sort low to high"}</button>
             </div>
             <div>
                 {

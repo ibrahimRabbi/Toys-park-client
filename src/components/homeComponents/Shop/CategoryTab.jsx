@@ -1,28 +1,14 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Disnap from './Disnap';
-import Marvel from './marvel';
-import Universal from './Universal';
-import WarnerBros from './WarnerBros';
-
+ import Holder from './Holder'
 const CategoryTab = () => {
 
-    const [data, setData] = useState(null)
-   
+     
 
-    const func = (category) => {
-            fetch(`https://toys-park-server.vercel.app/category/${category}`)
-                .then(res => res.json())
-                .then(res => setData(res))
-    }
+     
 
-    useEffect(() => {
-        fetch(`https://toys-park-server.vercel.app/category/marvel`)
-            .then(res => res.json())
-            .then(res => setData(res))
-    },[])
-   
+     
     return (
         <section className='w-[90%] mx-auto mt-20'>
             <div data-aos="fade-left" className='mb-10 lg:w-1/2 mx-auto space-y-4 text-center'>
@@ -30,31 +16,31 @@ const CategoryTab = () => {
                 <p className='text-sm text-gray-400'>Discover the Magic Unicorn Castle: Step into a world of enchantment with the Magic Unicorn Castle toy set. This whimsical playset includes a majestic castle, complete</p>
                 <hr className='border-pink-500' />
             </div>
-           
+
             <div className='font-semibold mt-16'>
                 <Tabs>
                     <TabList>
                         <Tab>Marvel</Tab>
-                        <Tab onClick={() => func('warner bros')} >Warner Bros</Tab>
-                        <Tab onClick={() => func('universal')}>Universal</Tab>
-                        <Tab onClick={() => func('disnap')}>Disnap</Tab>
+                        <Tab>Warner Bros</Tab>
+                        <Tab>Universal</Tab>
+                        <Tab>Disnap</Tab>
                     </TabList>
-                   
-                    <TabPanel>    
-                        <Marvel category={data} />
+
+                    <TabPanel>
+                        <Holder name='marvel'/>
                     </TabPanel>
                     <TabPanel>
-                        <WarnerBros category={data} />
+                        <Holder name="warner bros" />
                     </TabPanel>
                     <TabPanel>
-                        <Universal category={data} />
+                        <Holder name="universal"/>
                     </TabPanel>
                     <TabPanel>
-                        <Disnap category={data} />
+                        <Holder name="disnap"/>
                     </TabPanel>
                 </Tabs>
             </div>
-             
+
         </section>
     );
 };

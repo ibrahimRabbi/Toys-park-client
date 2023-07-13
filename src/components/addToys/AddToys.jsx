@@ -7,7 +7,7 @@ const AddToys = () => {
 
     const { user } = useContext(Context)
 
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
     const submitHandler = (e) => {
@@ -34,7 +34,7 @@ const navigate = useNavigate()
             .then(res => {
                 if (res.insertedId) {
                     e.target.reset()
-                   navigate('/mytoys')
+                    navigate('/mytoys')
                     Swal.fire(
                         'Toy added Successfully',
                         '',
